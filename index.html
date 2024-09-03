@@ -1,0 +1,310 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Intro component with sign up form</title>
+<style>
+  body {
+    background: hsl(0, 100%, 74%);
+    background-image: url(bg-intro-desktop.png);    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.content-left {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-right: 50px;
+}
+
+.content-left h1 {
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 900;
+}
+
+.tryit {
+    background: rgb(111, 50, 208);
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-shadow: 0px 7px #a3414146;
+}
+
+.form input {
+    box-sizing: border-box; 
+}
+
+.form a {
+    text-decoration: none;
+    color: hsl(0, 100%, 74%);
+    font-weight: 600;
+}
+
+button {
+    border: 0px;
+    width: 100%;
+    padding: 30px;
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.signup-form {
+    text-align: center;
+    color: hsl(249, 10%, 26%);
+    background: white;
+    display: block;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.form-field + .form-field {
+    margin-top: 16px; 
+}
+
+.form-field > *:last-child {
+    margin-bottom: 0; 
+}
+
+.form-input, .btn-claim {
+    display: block;
+    width: 100%;
+    height: 56px;
+    border-radius: calc(8px / 2);
+    font-family: inherit;
+    -webkit-appearance: none;
+}
+
+.form-input {
+    border: 1px solid hsl(0, 0%, 87%);
+    padding: 1em;
+    font-size: 0.875rem;
+    font-weight: 600; 
+}
+
+.form-input::placeholder {
+    color: hsl(249, 10%, 48%);
+    opacity: 1; 
+}
+
+.form-input:focus {
+    border-color: hsl(249, 10%, 26%);
+    outline: none; 
+}
+
+.form-input.invalid {
+    border: 2px solid hsl(0, 100%, 74%);
+    color: hsl(0, 100%, 74%);
+    background-image: url(icon-error.svg);
+    background-repeat: no-repeat;
+    background-position: center right 1em; 
+}
+
+.form-input.invalid::placeholder {
+    color: currentColor; 
+}
+
+.btn-claim {
+    box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.15);
+    color: white;
+    border: 0;
+    padding: 0 calc(1em / 2);
+    background: rgb(56, 204, 140);
+    transition:  0.3s;
+    text-transform: uppercase;
+    font-size: inherit;
+    font-weight: 600;
+    cursor: pointer; 
+}
+
+.btn-claim:hover, .btn-claim:focus {
+    background: hsl(154, 59%, 51%);
+    outline: none; 
+}
+
+.terms, .error {
+    font-size: 0.6875rem; 
+}
+
+.error {
+    display: block;
+    text-align: right;
+    color:hsl(0, 100%, 74%);
+    margin-top: 0.5em;
+    font-weight: 500;
+    font-style: italic; 
+}
+
+.error:empty {
+    display: none; 
+}
+
+.terms {
+    font-weight: 500;
+    color: hsl(246, 25%, 77%); 
+}
+  
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0; 
+}
+
+@media only screen and (max-width: 375px) {
+    body {
+          background-image: url(images/bg-intro-mobile.png);
+    }
+      
+    .content {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .content-left {
+        width: 90%;
+        text-align: center;
+    }
+
+    .content-left h1 {
+        font-size: 25px;
+        line-height: 30px;;
+    }
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+</style>
+</head>
+<body>
+
+  <div class="content">
+    <div class="content-left">
+      <h1>Learn to code by watching others</h1>
+      <p> See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable. </p>
+    </div>
+    <div class="content-right">
+      <div class="btn-tryit">
+        <button class="tryit"><strong>Try it free 7 days</strong> then $20/mo. thereafter</button>
+      </div>
+      <div class="form">
+
+        <form class="signup-form js-signup-form">
+          <div class="form-field">
+            <label for="first" class="sr-only"></label>
+            <input id="first" class="form-input" type="text" placeholder="First Name" required />
+            <label for="first" class="error"></label>
+          </div>
+
+          <div class="form-field">
+            <label for="last" class="sr-only"></label>
+            <input id="last" class="form-input" type="text" placeholder="Last Name" required />
+            <label for="last" class="error"></label>
+          </div>
+
+          <div class="form-field">
+            <label for="email" class="sr-only"></label>
+            <input id="email" class="form-input" type="email" placeholder="Email Address" required />
+            <label for="email" class="error"></label>
+          </div>
+
+          <div class="form-field">
+            <label for="password" class="sr-only"></label>
+            <input id="password" class="form-input" type="password" minlength="8" placeholder="Password" required />
+            <label for="password" class="error"></label>
+          </div>
+
+          <div class="form-field">
+            <button class="btn-claim" type="submit">
+              Claim your free trial
+            </button>
+
+            <p class="terms">
+              <small>
+                By clicking the button, you are agreeing to our
+                <strong><a href="#">Terms and Services</a></strong>
+              </small>
+            </p>
+          </div>
+        </form>  
+
+
+      </div>
+    </div>
+  </div>
+
+ 
+  <script>
+    function submitFormHandler(e) {
+    e.preventDefault();
+    alert('Form submitted succesfully!');
+}
+  
+function invalidInputHandler(e) {
+    const input = e.target;
+    const id = input.getAttribute('id');
+    const errorLabel = input
+        .closest('form')
+        .querySelector(`.error[for=${id}]`);
+        document.getElementById('first').setCustomValidity('First Name cannot be empty');
+        document.getElementById('last').setCustomValidity('Last Name cannot be empty');
+        document.getElementById('email').setCustomValidity('Looks like this is not an email');
+        document.getElementById('password').setCustomValidity('Password cannot be empty');
+
+    e.preventDefault();
+    errorLabel.textContent = input.validationMessage;
+    input.classList.add('invalid');
+}
+  
+function changeInputHandler(e) {
+    const input = e.target;
+
+    if (!input.validity.valid) return;
+    const id = input.getAttribute('id');
+    const errorLabel = input
+        .closest('form')
+        .querySelector(`.error[for=${id}]`);
+
+    errorLabel.textContent = '';
+    input.classList.remove('invalid');
+}
+  
+const form = document.querySelector('.js-signup-form');
+const inputs = form.querySelectorAll('input');
+
+form.addEventListener('submit', submitFormHandler);
+inputs.forEach(input => {
+    input.addEventListener('invalid', invalidInputHandler);
+    input.addEventListener('change', changeInputHandler);
+});
+  
+  </script>
+</body>
